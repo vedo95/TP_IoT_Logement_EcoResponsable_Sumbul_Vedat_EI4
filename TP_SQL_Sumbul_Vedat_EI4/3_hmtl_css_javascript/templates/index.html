@@ -1,0 +1,81 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - HarmonieVerte </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>HarmonieVerte</h1>
+  <button id="burger-menu">☰</button>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="{{ url_for('index') }}">Accueil</a></li>
+      <li><a href="{{ url_for('capteurs') }}">Capteurs/Actionneurs</a></li>
+      <li><a href="{{ url_for('configuration') }}">Configuration</a></li>
+      <li><a href="{{ url_for('economies') }}">Économies</a></li>
+      <li><a href="{{ url_for('meteo') }}">Météo</a></li>
+      <li><a href="{{ url_for('consommation') }}">Consommation</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Bienvenue</h2>
+    <p>
+      Bienvenue sur notre interface de gestion éco-responsable.
+      Gérez vos capteurs, suivez vos consommations et vos économies,
+      le tout en respectant l’environnement.
+    </p>
+    <img src="{{ url_for('static', filename='img/eco-house.png') }}"
+         alt="Maison éco-responsable"
+         style="display:block; margin:20px auto; max-width:300px;">
+  </section>
+
+  <section>
+    <h2>Fonctionnalités Principales</h2>
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <!-- Fonctionnalité 1 : Capteurs & Actionneurs -->
+      <div style="flex:1; min-width:250px;">
+        <img src="{{ url_for('static', filename='img/capteur-icon.png') }}"
+             alt="Icon Capteurs" style="max-width:80px; float:left; margin-right:10px;">
+        <h3>Capteurs & Actionneurs</h3>
+        <p>Consultez et gérez l’état de vos capteurs/actionneurs (Température, Lumière...).</p>
+      </div>
+
+      <!-- Fonctionnalité 2 : Économies Réalisées -->
+      <div style="flex:1; min-width:250px;">
+        <img src="{{ url_for('static', filename='img/economies-icon.png') }}"
+             alt="Icon Économies" style="max-width:80px; float:left; margin-right:10px;">
+        <h3>Économies Réalisées</h3>
+        <p>Comparez vos dépenses dans le temps, repérez les économies effectuées grâce à nos optimisations.</p>
+      </div>
+
+      <!-- Fonctionnalité 3 : Météo -->
+      <div style="flex:1; min-width:250px;">
+        <img src="{{ url_for('static', filename='img/meteo-icon.png') }}"
+             alt="Icon Météo" style="max-width:80px; float:left; margin-right:10px;">
+        <h3>Météo</h3>
+        <p>Consultez les prévisions météo et planifiez vos activités en conséquence.</p>
+      </div>
+
+      <!-- Fonctionnalité 4 : Consommation -->
+      <div style="flex:1; min-width:250px;">
+        <img src="{{ url_for('static', filename='img/consommation-icon.png') }}"
+             alt="Icon Consommation" style="max-width:80px; float:left; margin-right:10px;">
+        <h3>Consommation</h3>
+        <p>Suivez votre consommation énergétique et optimisez vos usages pour économiser.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

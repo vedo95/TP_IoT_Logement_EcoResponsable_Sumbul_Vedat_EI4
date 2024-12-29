@@ -1,0 +1,6 @@
+Flask==3.0.3
+Flask-Cors==5.0.0
+requests==2.32.3
+logging==0.4.9.6
+random==1.0.1
+sqlite3==2.6.0

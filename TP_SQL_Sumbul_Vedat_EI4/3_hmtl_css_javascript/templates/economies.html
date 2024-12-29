@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Économies Réalisées</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <!-- Google Charts -->
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+<header>
+  <h1>HarmonieVerte</h1>
+  <button id="burger-menu">☰</button>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="{{ url_for('index') }}">Accueil</a></li>
+      <li><a href="{{ url_for('capteurs') }}">Capteurs/Actionneurs</a></li>
+      <li><a href="{{ url_for('configuration') }}">Configuration</a></li>
+      <li><a href="{{ url_for('economies') }}">Économies</a></li>
+      <li><a href="{{ url_for('meteo') }}">Météo</a></li>
+      <li><a href="{{ url_for('consommation') }}">Consommation</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Vos Économies Réalisées</h2>
+
+  <label for="scale-select">Échelle de temps :</label>
+  <select id="scale-select">
+    <option value="Mensuel">Mensuel</option>
+    <option value="Annuel">Annuel</option>
+  </select>
+
+  <button id="btn-load">Afficher</button>
+
+  <div id="chart-economies" style="width: 100%; height: 500px; margin-top: 20px;"></div>
+</main>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/economies.js') }}"></script>
+</body>
+</html>

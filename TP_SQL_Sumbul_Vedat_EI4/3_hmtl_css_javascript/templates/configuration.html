@@ -1,0 +1,123 @@
+<!-- templates/configuration.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuration - HarmonieVerte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Feuille de style globale -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>HarmonieVerte</h1>
+  <button id="burger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-list">☰</button>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="{{ url_for('index') }}">Accueil</a></li>
+      <li><a href="{{ url_for('capteurs') }}">Capteurs/Actionneurs</a></li>
+      <li><a href="{{ url_for('configuration') }}" class="active">Configuration</a></li>
+      <li><a href="{{ url_for('economies') }}">Économies</a></li>
+      <li><a href="{{ url_for('meteo') }}">Météo</a></li>
+      <li><a href="{{ url_for('consommation') }}">Consommation</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Section Capteurs et Actionneurs -->
+  <section>
+    <h2>Capteurs et Actionneurs</h2>
+    <table id="capteurs-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Port de Communication</th>
+          <th>Référence Commerciale</th>
+          <th>ID Pièce</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rempli dynamiquement via configuration.js -->
+      </tbody>
+    </table>
+
+    <button id="btn-add-capteur">Ajouter un Capteur/Actionneur</button>
+
+    <!-- Modal pour ajouter un Capteur/Actionneur -->
+    <div id="modal-add-capteur" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Ajouter un Capteur/Actionneur</h3>
+        <form id="add-capteur-form">
+          <label for="type">Type :</label>
+          <input type="text" id="type" name="type" required />
+
+          <label for="port_communication">Port de Communication :</label>
+          <input type="text" id="port_communication" name="port_communication" required />
+
+          <label for="reference_commerciale">Référence Commerciale :</label>
+          <input type="text" id="reference_commerciale" name="reference_commerciale" required />
+
+          <label for="id_piece">ID Pièce :</label>
+          <input type="text" id="id_piece" name="id_piece" required />
+
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Logements -->
+  <section>
+    <h2>Logements</h2>
+    <table id="logements-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Adresse</th>
+          <th>Numéro de Téléphone</th>
+          <th>Adresse IP</th>
+          <th>Date d'Insertion</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rempli dynamiquement via configuration.js -->
+      </tbody>
+    </table>
+
+    <button id="btn-add-logement">Ajouter un Logement</button>
+
+    <!-- Modal pour ajouter un Logement -->
+    <div id="modal-add-logement" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Ajouter un Logement</h3>
+        <form id="add-logement-form">
+          <label for="logement-address">Adresse :</label>
+          <input type="text" id="logement-address" name="logement-address" required />
+
+          <label for="logement-phone">Numéro de Téléphone :</label>
+          <input type="text" id="logement-phone" name="logement-phone" required />
+
+          <label for="logement-ip">Adresse IP :</label>
+          <input type="text" id="logement-ip" name="logement-ip" required />
+
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/configuration.js') }}"></script>
+</body>
+</html>

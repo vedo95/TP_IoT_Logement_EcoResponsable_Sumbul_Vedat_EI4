@@ -1,0 +1,68 @@
+<!-- templates/capteurs.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Capteurs / Actionneurs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Feuille de style globale -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>HarmonieVerte</h1>
+  <button id="burger-menu">☰</button>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="{{ url_for('index') }}">Accueil</a></li>
+      <li><a href="{{ url_for('capteurs') }}">Capteurs/Actionneurs</a></li>
+      <li><a href="{{ url_for('configuration') }}">Configuration</a></li>
+      <li><a href="{{ url_for('economies') }}">Économies</a></li>
+      <li><a href="{{ url_for('meteo') }}">Météo</a></li>
+      <li><a href="{{ url_for('consommation') }}">Consommation</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Premier tableau : 20 derniers Capteurs / Actionneurs -->
+  <section>
+    <h2>Capteurs et Actionneurs (20 derniers)</h2>
+    <table id="capteurs-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Port de Communication</th>
+          <th>Référence Commerciale</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rempli dynamiquement via JS fetch /api/capteurs -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Deuxième tableau : 20 dernières Mesures & Actions -->
+  <!-- On l'affiche via un iframe, car /mesures/actions renvoie du HTML -->
+  <section>
+    <h2>Mesures et Actions (20 dernières)</h2>
+    <iframe
+      src="/mesures/actions"
+      style="width: 100%; height: 600px; border: none;"
+      title="Mesures et Actions">
+    </iframe>
+  </section>
+
+</main>
+
+<!--  script principal -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<!-- Script spécifique -->
+<script src="{{ url_for('static', filename='js/capteurs.js') }}"></script>
+</body>
+</html>

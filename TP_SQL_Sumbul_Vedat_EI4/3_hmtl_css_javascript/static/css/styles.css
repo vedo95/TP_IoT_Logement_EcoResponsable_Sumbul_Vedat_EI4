@@ -1,0 +1,352 @@
+/* static/css/styles.css */
+
+/* RESET minimal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Variables CSS pour les couleurs */
+:root {
+  --main-color: #2E8B57; /* Vert principal */
+  --accent-color: #FFA07A; /* Orange doux */
+  --delete-color: #e74c3c; /* Rouge vif pour les boutons supprimer */
+  --delete-hover-color: #c0392b; /* Rouge foncé au survol */
+  --text-color: #FFFFFF; /* Texte blanc */
+  --button-color: #17a085; /* Vert des autres boutons */
+  --button-hover-color: #148f77; /* Vert foncé au survol */
+  --modal-bg: #fefefe; /* Fond des modals */
+  --modal-overlay: rgba(0,0,0,0.5); /* Fond semi-transparent des modals */
+  --header-text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Ombre pour le texte du header */
+  --feature-bg: #F0FFF0; /* Honeydew pour les fonctionnalités */
+  --feature-hover-bg: #e0ffe0; /* Fond plus sombre au survol des fonctionnalités */
+}
+
+/* HEADER & NAV */
+header {
+  background: url("../img/header-bg.png") no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: #fff;
+  font-size: 2em;
+  text-shadow: var(--header-text-shadow);
+}
+
+/* Bouton Menu Burger */
+#burger-menu {
+  font-size: 1.5em;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none; /* Visible seulement sur mobile */
+  color: var(--main-color); /* Vert pour le burger */
+}
+
+/* Barre de Navigation */
+nav {
+  margin-top: 10px;
+  background-color: var(--main-color); /* Couleur principale verte */
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul#nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+nav ul#nav-list li a {
+  text-decoration: none;
+  color: var(--text-color); /* Texte blanc */
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+}
+
+nav ul#nav-list li a:hover {
+  background-color: var(--accent-color); /* Couleur d'accent orange doux au survol */
+  color: var(--main-color); /* Texte vert sur fond orange */
+}
+
+nav ul#nav-list li a.active {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+}
+
+/* MAIN */
+main {
+  padding: 20px;
+}
+
+/* SECTIONS, HEADINGS */
+section {
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  margin-bottom: 15px;
+  color: var(--main-color);
+}
+
+/* TABLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+thead tr {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* BUTTONS */
+button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--button-color); /* Vert */
+  color: var(--text-color);
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: var(--button-hover-color); /* Vert foncé au survol */
+}
+
+/* Styles pour les boutons "Supprimer" */
+.delete-btn {
+  background-color: var(--delete-color); /* Rouge vif */
+  color: var(--text-color); /* Texte blanc */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background-color: var(--delete-hover-color); /* Rouge plus foncé au survol */
+}
+
+/* Container des fonctionnalités */
+.features-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Chaque fonctionnalité */
+.feature {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  background-color: var(--feature-bg); /* Honeydew pour un fond léger */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.feature img {
+  max-width: 80px;
+  margin-right: 15px;
+}
+
+.feature h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--main-color); /* Vert pour les titres */
+}
+
+.feature p {
+  margin: 0;
+  font-size: 1em;
+  color: #555555; /* Gris pour le texte */
+}
+
+/* Styles pour les modals */
+.modal {
+  display: none; /* Caché par défaut */
+  position: fixed; /* Reste en place */
+  z-index: 1001; /* Au-dessus de tout */
+  left: 0;
+  top: 0;
+  width: 100%; /* Pleine largeur */
+  height: 100%; /* Pleine hauteur */
+  overflow: auto; /* Défilement si nécessaire */
+  background-color: var(--modal-overlay); /* Fond semi-transparent */
+}
+
+/* Contenu du modal */
+.modal-content {
+  background-color: var(--modal-bg);
+  margin: 10% auto; /* 10% du haut et centré */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Largeur du modal */
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Bouton de fermeture */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Styles pour les formulaires dans les modals */
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.modal form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal form button {
+  margin-top: 15px;
+  align-self: flex-end;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  /* Afficher le menu burger */
+  #burger-menu {
+    display: block;
+  }
+
+  /* Cacher le menu de navigation par défaut */
+  nav ul#nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: var(--main-color);
+    position: absolute;
+    top: 80px; /* Ajustez selon la hauteur de votre header */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 8px 8px;
+  }
+
+  /* Afficher le menu lorsqu'il est ouvert */
+  nav ul#nav-list.open {
+    display: flex;
+  }
+
+  /* Styles des éléments du menu en mobile */
+  nav ul#nav-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #3CB371; /* Medium Sea Green */
+  }
+
+  nav ul#nav-list li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul#nav-list li a {
+    padding: 10px 0;
+    display: block;
+    color: var(--text-color);
+  }
+
+  /* Ajuster le container des fonctionnalités en mobile */
+  .features-container {
+    flex-direction: column;
+  }
+
+  /* Ajuster les tables en mobile */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+}
